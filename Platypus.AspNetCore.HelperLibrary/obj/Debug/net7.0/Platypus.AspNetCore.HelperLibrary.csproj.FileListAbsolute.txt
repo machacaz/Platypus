@@ -1,0 +1,13 @@
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\bin\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.deps.json
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\bin\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.dll
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\bin\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.pdb
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.csproj.AssemblyReference.cache
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.AssemblyInfoInputs.cache
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.AssemblyInfo.cs
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.csproj.CoreCompileInputs.cache
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.sourcelink.json
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.dll
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\refint\Platypus.AspNetCore.HelperLibrary.dll
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\Platypus.AspNetCore.HelperLibrary.pdb
+C:\Users\josem\Source\Repos\Platypus\Platypus.AspNetCore.HelperLibrary\obj\Debug\net7.0\ref\Platypus.AspNetCore.HelperLibrary.dll
