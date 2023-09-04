@@ -17,4 +17,5 @@ Helpers methods to:
 
   
 Note: 
-Note all code is mine - some came from other sources - the reason is not given full credit is just lost the track to it. 
+Note all code is mine - some came from other sources - the reason for not given credit is not just because I lost in most cases.
+The library should be seen as a compendium of gathering knowledge during the time.
