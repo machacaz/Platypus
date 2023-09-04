@@ -1,10 +1,4 @@
-﻿using Platypus.HelperLibrary.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
 namespace Platypus.HelperLibrary.Helpers
 {
@@ -46,23 +40,23 @@ namespace Platypus.HelperLibrary.Helpers
             return Expression.Lambda<T>(merge(first.Body, secondBody), first.Parameters);
         }
 
-        public static Expression<Func<T, bool>> GenerateExpressionForList<T>(List<int> idsList) where T : BaseEntity
-        {
-            var predicate = PredicateBuilder.True<T>();
+        //public static Expression<Func<T, bool>> GenerateExpressionForList<T>(List<int> idsList) where T : BaseEntity
+        //{
+        //    var predicate = PredicateBuilder.True<T>();
 
-            foreach (var idValue in idsList)
-            {
-                //If it is the first predicate, you should apply "And"
-                if (predicate.Body.NodeType == ExpressionType.Constant)
-                {
-                    predicate = predicate.And(obj => obj.Id == idValue);
-                    continue;
-                }
-                predicate = predicate.Or(obj => obj.Id == idValue);
-            }
+        //    foreach (var idValue in idsList)
+        //    {
+        //        //If it is the first predicate, you should apply "And"
+        //        if (predicate.Body.NodeType == ExpressionType.Constant)
+        //        {
+        //            predicate = predicate.And(obj => obj.Id == idValue);
+        //            continue;
+        //        }
+        //        predicate = predicate.Or(obj => obj.Id == idValue);
+        //    }
 
-            return predicate;
-        }
+        //    return predicate;
+        //}
 
         class ParameterRebinder : ExpressionVisitor
         {
@@ -78,16 +72,16 @@ namespace Platypus.HelperLibrary.Helpers
                 return new ParameterRebinder(map).Visit(exp);
             }
 
-            protected override Expression VisitParameter(ParameterExpression p)
+            protected override Expression VisitParameter(ParameterExpression node)
             {
                 ParameterExpression replacement;
 
-                if (map.TryGetValue(p, out replacement))
+                if (map.TryGetValue(node, out replacement))
                 {
-                    p = replacement;
+                    node = replacement;
                 }
 
-                return base.VisitParameter(p);
+                return base.VisitParameter(node);
             }
 
 

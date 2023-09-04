@@ -5,3 +5,5 @@
 /Platypus.HelperLibrary/obj
 /Platypus.HelperLibrary/bin
 .vs
+/Platypus.Tests/bin
+/Platypus.Tests/obj
