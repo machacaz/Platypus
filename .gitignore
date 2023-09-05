@@ -7,3 +7,5 @@
 .vs
 /Platypus.Tests/bin
 /Platypus.Tests/obj
+Platypus.AspNetCore.HelperLibrary/obj
+Platypus.AspNetCore.HelperLibrary/bin

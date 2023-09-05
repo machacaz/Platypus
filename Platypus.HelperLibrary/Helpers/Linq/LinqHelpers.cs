@@ -39,53 +39,35 @@ namespace Platypus.HelperLibrary.Helpers
             // create a merged lambda expression with parameters from the first expression    
             return Expression.Lambda<T>(merge(first.Body, secondBody), first.Parameters);
         }
+    }
 
-        //public static Expression<Func<T, bool>> GenerateExpressionForList<T>(List<int> idsList) where T : BaseEntity
-        //{
-        //    var predicate = PredicateBuilder.True<T>();
+    class ParameterRebinder : ExpressionVisitor
+    {
+        readonly Dictionary<ParameterExpression, ParameterExpression> map;
 
-        //    foreach (var idValue in idsList)
-        //    {
-        //        //If it is the first predicate, you should apply "And"
-        //        if (predicate.Body.NodeType == ExpressionType.Constant)
-        //        {
-        //            predicate = predicate.And(obj => obj.Id == idValue);
-        //            continue;
-        //        }
-        //        predicate = predicate.Or(obj => obj.Id == idValue);
-        //    }
-
-        //    return predicate;
-        //}
-
-        class ParameterRebinder : ExpressionVisitor
+        ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map)
         {
-            readonly Dictionary<ParameterExpression, ParameterExpression> map;
-
-            ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map)
-            {
-                this.map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
-            }
-
-            public static Expression ReplaceParameters(Dictionary<ParameterExpression, ParameterExpression> map, Expression exp)
-            {
-                return new ParameterRebinder(map).Visit(exp);
-            }
-
-            protected override Expression VisitParameter(ParameterExpression node)
-            {
-                ParameterExpression replacement;
-
-                if (map.TryGetValue(node, out replacement))
-                {
-                    node = replacement;
-                }
-
-                return base.VisitParameter(node);
-            }
-
-
+            this.map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
         }
+
+        public static Expression ReplaceParameters(Dictionary<ParameterExpression, ParameterExpression> map, Expression exp)
+        {
+            return new ParameterRebinder(map).Visit(exp);
+        }
+
+        protected override Expression VisitParameter(ParameterExpression node)
+        {
+            ParameterExpression replacement;
+
+            if (map.TryGetValue(node, out replacement))
+            {
+                node = replacement;
+            }
+
+            return base.VisitParameter(node);
+        }
+
+
     }
 
 }
