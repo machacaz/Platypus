@@ -22,7 +22,7 @@ namespace Platypus.HelperLibrary.Extensions
         /*
          https://www.stevejgordon.co.uk/using-high-performance-dotnetcore-csharp-techniques-to-base64-encode-a-guid
          */
-
+        [Obsolete("Use the method FromShortString")]
         public static Guid DecodeBase64String(this string encodedGuid) 
         {
             if (string.IsNullOrEmpty(encodedGuid)) return Guid.Empty;
@@ -30,6 +30,7 @@ namespace Platypus.HelperLibrary.Extensions
             return encodedGuid.AsSpan().DecodeBase64String(); 
         }
 
+        [Obsolete("Use the method FromShortString")]
         public static Guid DecodeBase64String(this ReadOnlySpan<char> id)
         {
             Span<char> base64Chars = stackalloc char[24];
@@ -53,6 +54,7 @@ namespace Platypus.HelperLibrary.Extensions
             return new(idBytes);
         }
 
+        [Obsolete("Use the method ToShortString")]
         public static string EncodeBase64String(this Guid guid)
         {
             Span<byte> guidBytes = stackalloc byte[16];
@@ -78,6 +80,24 @@ namespace Platypus.HelperLibrary.Extensions
             return new(chars);
         }
 
+
+        public static string ToShortString(this Guid guid)
+        {
+            var base64Guid = Convert.ToBase64String(guid.ToByteArray());
+
+            // Replace URL unfriendly characters
+            base64Guid = base64Guid.Replace('+', '-').Replace('/', '_');
+
+            // Remove the trailing ==
+            return base64Guid.Substring(0, base64Guid.Length - 2);
+        }
+
+        public static Guid FromShortString(this string str)
+        {
+            str = str.Replace('_', '/').Replace('-', '+');
+            var byteArray = Convert.FromBase64String(str + "==");
+            return new Guid(byteArray);
+        }
 
         #region ToDelete 
 

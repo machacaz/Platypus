@@ -44,5 +44,33 @@ namespace Platypus.Tests
 
             Assert.NotEqual(b1Encoded, b2Encoded);
         }
+
+
+        [Fact(DisplayName = "Test ChapGPT Guid")]
+        public void TestOtherVersion()
+        {
+            var guid = Guid.NewGuid();
+            var shortened = GuidExtensions.ToShortString(guid); 
+
+            //var guid = Guid.NewGuid();
+            //var value1 = GuidExtensions.TestGPT(guid);
+
+
+
+            Assert.NotEqual(guid.ToString(), shortened);
+        }
+
+
+        [Fact(DisplayName = "Test ChapGPT Guid")]
+        public void TestOtherVersion2()
+        {
+            var guid = Guid.NewGuid();
+            var shortened = GuidExtensions.ToShortString(guid);
+
+
+            var gGuid = GuidExtensions.FromShortString(shortened);
+
+            Assert.Equal(guid, gGuid);
+        }
     }
 }
